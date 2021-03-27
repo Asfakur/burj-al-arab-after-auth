@@ -24,7 +24,7 @@ const Login = () => {
 
             storeAuthToken(); //fire base jwt call
 
-            history.replace(from);
+            
             // ...
         }).catch(function (error) {
             const errorMessage = error.message;
@@ -37,6 +37,7 @@ const Login = () => {
         firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function (idToken) {
             // console.log(idToken);
             sessionStorage.setItem('token', idToken);
+            history.replace(from);
         }).catch(function (error) {
             // Handle error
         });
